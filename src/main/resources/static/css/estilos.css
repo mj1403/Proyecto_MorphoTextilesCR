@@ -7,3 +7,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : marjo
 */
 
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #17a2b8; /* Color de fondo */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
