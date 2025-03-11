@@ -7,9 +7,11 @@ package com.proyecto.domain;
 import java.io.Serializable;
 import lombok.Data;
 import jakarta. persistence.*;
+import java.time.LocalDateTime;
+
 @Data
 @Entity
-@Table(name="producto")
+@Table(name="productos")
 public class Producto implements Serializable {
     private static final long serialVersionUID=1L;
     
@@ -17,10 +19,15 @@ public class Producto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name="id_producto")
     private Long idProducto;
+    private String nombre;
     private String descripcion;
     private double precio;
-    private int existencias;
-    private String rutaImagen;
+    private int stock;
+    private String imagen;
+    private String categoria;
+    
+    @Column(name = "fecha_creacion", nullable = false, updatable = false)
+     private LocalDateTime fechaCreacion;
 
     public Long getIdProducto() {
         return idProducto;
@@ -28,6 +35,22 @@ public class Producto implements Serializable {
 
     public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public double getPrecio() {
@@ -38,28 +61,37 @@ public class Producto implements Serializable {
         this.precio = precio;
     }
 
-    public int getExistencias() {
-        return existencias;
+    public int getStock() {
+        return stock;
     }
 
-    public void setExistencias(int existencias) {
-        this.existencias = existencias;
-    }
-    
-    public String getDescripcion() {
-        return descripcion;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public String getImagen() {
+        return imagen;
     }
 
-    public String getRutaImagen() {
-        return rutaImagen;
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
-    public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
+    public String getCategoria() {
+        return categoria;
     }
-    
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public LocalDateTime getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+
 }
