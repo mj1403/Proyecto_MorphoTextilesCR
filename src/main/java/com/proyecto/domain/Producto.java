@@ -26,9 +26,6 @@ public class Producto implements Serializable {
     private String imagen;
     private String categoria;
     
-    @Column(name = "fecha_creacion", nullable = false, updatable = false)
-     private LocalDateTime fechaCreacion;
-
     public Long getIdProducto() {
         return idProducto;
     }
@@ -85,13 +82,6 @@ public class Producto implements Serializable {
         this.categoria = categoria;
     }
 
-    public LocalDateTime getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
-
+    
 
 }

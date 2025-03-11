@@ -46,17 +46,19 @@
                                     <input type="text" class="form-control" name="nombre" required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label>[[#{producto.precio}]]</label>
-                                    <input type="number" class="form-control" name="precio" required="true"/>
-                                </div>
-                                <div class="mb-3">
                                     <label>[[#{producto.descripcion}]]</label>
                                     <input type="text" class="form-control" name="descripcion"/>
                                 </div>
                                 <div class="mb-3">
+                                    <label>[[#{producto.precio}]]</label>
+                                    <input type="number" class="form-control" name="precio" required="true"/>
+                                </div>
+                                
+                                <div class="mb-3">
                                     <label>[[#{producto.stock}]]</label>
                                     <input type="number" class="form-control" name="stock" required="true"/>
                                 </div>
+                                
                                 <div class="mb-3">
                                     <label>[[#{producto.categoria}]]</label>
                                     <input type="text" class="form-control" name="categoria" required="true"/>
@@ -64,7 +66,7 @@
                                 
                                 <div class="mb-3">
                                     <label>[[#{producto.imagen}]]</label>
-                                    <input class="form-control" type="file" name="imagen" 
+                                    <input class="form-control" type="file" name="imagenFile" 
                                            onchange="readURL(this);"/>
                                     <img id="blah" src="#" alt="your image" height="200"/>
                                 </div>
@@ -90,10 +92,10 @@
                                 <thead class="table-dark">
                                     <tr><th>#</th>
                                         <th>[[#{producto.nombre}]]</th>
+                                         <th>[[#{producto.descripcion}]]</th>
+                                         <th>[[#{producto.precio}]]</th>
+                                         <th>[[#{producto.stock}]]</th>
                                         <th>[[#{producto.imagen}]]</th>
-                                        <th>[[#{producto.precio}]]</th>
-                                        <th>[[#{producto.stock}]]</th>
-                                        <th>[[#{producto.descripcion}]]</th>
                                         <th>[[#{producto.categoria}]]</th>
                                         <th></th>
                                     </tr>
@@ -185,18 +187,19 @@
                                                required="true"/>
                                     </div>
                                     <div class="mb-3">
+                                        <label for="imagen">[[#{producto.imagen}]]</label>
+                                        <input class="form-control" type="file" name="imagenFile"
+                                               onchange="readURL(this);" />
+                                        <img id="blah" th:src="@{${producto.imagen}}" alt="your image" height="200"/>
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="categoria">[[#{producto.categoria}]]</label>
                                         <input type="text" class="form-control" 
                                                name="categoria" th:field="*{categoria}"
                                                required="true"/>
                                     </div>
                                     
-                                    <div class="mb-3">
-                                        <label for="imagen">[[#{producto.imagen}]]</label>
-                                        <input class="form-control" type="file" name="imagenFile"
-                                               onchange="readURL(this);" />
-                                        <img id="blah" th:src="@{${producto.imagen}}" alt="your image" height="200"/>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
