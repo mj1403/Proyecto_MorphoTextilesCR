@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/DFTUV")
-public class DFTUVController {
+@RequestMapping("/DTFUV")
+public class DTFUVController {
 
 
     @GetMapping("/informacion")
     public String listado(Model model) {
-        String informacion = "DFT UV es una técnica de impresión que permite";
+        String informacion = "DTF UV es una técnica de impresión que permite transferir diseños directamente a superficies rígidas usando una película especial y curado con luz ultravioleta. ";
         model.addAttribute("informacion", informacion);
-        return "/DFTUV/informacion";
+        return "/DTFUV/informacion";
 
     }
 }
