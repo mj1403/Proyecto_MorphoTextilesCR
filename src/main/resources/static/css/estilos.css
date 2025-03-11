@@ -16,3 +16,18 @@ footer {
     text-align: center;
     padding: 10px 0; 
 }
+
+.carousel {
+    max-width: 600px;  /* Ajusta el ancho */
+    margin: auto;  /* Centra el carousel */
+}
+
+.carousel img {
+    height: 300px;  /* Ajusta la altura */
+    object-fit: cover;  /* Recorta para que la imagen siempre cubra el espacio */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* Hace los iconos oscuros para que se vean */
+}
