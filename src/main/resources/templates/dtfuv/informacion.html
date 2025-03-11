@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información</title>
-</head>
-<body>
-    <h1>Información sobre DTF UV</h1>
-    <p th:text="${informacion}"></p>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
+<head th:replace="~{layout/plantilla :: head}"></head>
+
+<body>
+    <header th:replace="~{layout/plantilla :: header}"></header>
+
+    <main>
+        <h1>Información sobre DTF UV</h1>
+        <p th:text="${informacion}"></p>
+    </main>
+
+    <footer th:replace="~{layout/plantilla :: footer}"></footer>
 </body>
 </html>
