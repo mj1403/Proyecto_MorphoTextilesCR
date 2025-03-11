@@ -64,7 +64,7 @@
                                 
                                 <div class="mb-3">
                                     <label>[[#{producto.imagen}]]</label>
-                                    <input class="form-control" type="file" name="imagenFile" 
+                                    <input class="form-control" type="file" name="imagen" 
                                            onchange="readURL(this);"/>
                                     <img id="blah" src="#" alt="your image" height="200"/>
                                 </div>
@@ -103,7 +103,7 @@
                                         <td>[[${c.idProducto}]]</td>
                                         <td>[[${c.descripcion}]]</td>
                                         <td><img th:src="@{${c.imagen}}" alt="no data" height="75"/></td>                                            
-                                        <td th:text="${c.activo} ? 'Activa' : 'Inactiva'" />
+                                        
                                         <td><a th:href="@{/producto/eliminar/}+${c.idProducto}"
                                                class="btn btn-danger">
                                                 <i class="fas fa-trash"></i> [[#{accion.eliminar}]]</a>
@@ -192,7 +192,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="imagen">[[#{producto.imagen}]]</label>
-                                        <input class="form-control" type="file" name="imagenFile"
+                                        <input class="form-control" type="file" name="imagen"
                                                onchange="readURL(this);" />
                                         <img id="blah" th:src="@{${producto.imagen}}" alt="your image" height="200"/>
                                         
