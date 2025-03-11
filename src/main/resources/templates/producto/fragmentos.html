@@ -190,12 +190,12 @@
                                                name="categoria" th:field="*{categoria}"
                                                required="true"/>
                                     </div>
+                                    
                                     <div class="mb-3">
                                         <label for="imagen">[[#{producto.imagen}]]</label>
-                                        <input class="form-control" type="file" name="imagen"
+                                        <input class="form-control" type="file" name="imagenFile"
                                                onchange="readURL(this);" />
                                         <img id="blah" th:src="@{${producto.imagen}}" alt="your image" height="200"/>
-                                        
                                     </div>
                                 </div>
                             </div>

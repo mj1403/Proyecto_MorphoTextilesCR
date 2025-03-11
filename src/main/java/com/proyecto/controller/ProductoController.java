@@ -47,7 +47,7 @@ public class ProductoController {
     @Autowired
     private FirebaseStorageService firebaseStorageService;
 
-    @PostMapping("/guardar")
+   @PostMapping("/guardar")
     public String save(Producto producto,
             @RequestParam("imagenFile") MultipartFile imagenFile){
         if(!imagenFile.isEmpty()){

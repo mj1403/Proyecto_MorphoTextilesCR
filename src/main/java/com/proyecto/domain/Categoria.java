@@ -18,7 +18,7 @@ public class Categoria implements Serializable {
     @Column (name="id_categoria")
     private Long idCategoria;
     private String descripcion;
-    private String rutaImagen;
+    private String imagen;
 
     public Long getIdCategoria() {
         return idCategoria;
@@ -36,11 +36,11 @@ public class Categoria implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getRutaImagen() {
-        return rutaImagen;
+    public String getimagen() {
+        return imagen;
     }
 
-    public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
+    public void setimagen(String imagen) {
+        this.imagen = imagen;
     }
 }
