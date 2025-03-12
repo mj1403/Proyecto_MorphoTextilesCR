@@ -3,16 +3,25 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
-<head th:replace="~{layout/plantilla :: head}"></head>
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Morpho Textiles CR</title>
+    <meta charset="UTF-8"/>
+    <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+</head>
 
 <body>
+    <!-- Header -->
     <header th:replace="~{layout/plantilla :: header}"></header>
 
-    <main>
+    <!-- Main content for the information tab -->
+    <main class="info-tab"> <!-- Aplicamos la clase info-tab para los estilos -->
         <h1>Información sobre DTF UV</h1>
-        <p th:text="${informacion}"></p>
+        <div class="info-card"> <!-- Card container para la información -->
+            <p th:text="${informacion}"></p> <!-- Asegúrate de que la variable 'informacion' tenga el contenido -->
+        </div>
     </main>
 
+    <!-- Footer -->
     <footer th:replace="~{layout/plantilla :: footer}"></footer>
 </body>
 </html>
