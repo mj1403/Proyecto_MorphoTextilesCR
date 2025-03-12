@@ -103,7 +103,7 @@
                                 <tbody>
                                     <tr th:each="c : ${productos}">
                                         <td>[[${c.idProducto}]]</td>
-                                        <td>[[${c.descripcion}]]</td>
+                                        <td>[[${c.nombre}]]</td>
                                         <td><img th:src="@{${c.imagen}}" alt="no data" height="75"/></td>                                            
                                         
                                         <td><a th:href="@{/producto/eliminar/}+${c.idProducto}"
