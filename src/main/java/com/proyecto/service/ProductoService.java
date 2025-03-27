@@ -44,4 +44,8 @@ public class ProductoService {
     public void save (Producto producto){
         productoRepository.save(producto);
     }
+    @Transactional(readOnly=true)
+    public List<Producto> consultaDescripcion(String descripcion){
+        return productoRepository.findByDescripcionContaining(descripcion);
+    }
 }
