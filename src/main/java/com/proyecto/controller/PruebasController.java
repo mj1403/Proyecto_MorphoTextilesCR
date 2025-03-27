@@ -37,17 +37,6 @@ public class PruebasController {
 
     }
 
-//    @GetMapping("/listado/{idCategoria}")
-//    public String listado(Model model, Categoria categoria) {
-//        var lista = categoriaService.getCategorias(false);
-//        model.addAttribute("categorias", lista);
-//        categoria = categoriaService.getCategoria(categoria);
-//        var productos = categoria.getProductos();
-//        model.addAttribute("productos", productos);
-//
-//        return "/pruebas/listado";
-//
-//    }
 
     @GetMapping("/listado2")
     public String listado2(Model model) {
@@ -57,42 +46,6 @@ public class PruebasController {
 
     }
 
-//    @PostMapping("/query1")
-//    public String query1(
-//            @RequestParam("precioInf") double precioInf,
-//            @RequestParam("precioSup") double precioSup,
-//            Model model) {
-//        var productos=productoService.consultaAmpliada(precioInf,precioSup);
-//        model.addAttribute("productos", productos);
-//        model.addAttribute("precioInf", precioInf);
-//        model.addAttribute("precioSup", precioSup);
-//        
-//        return "/pruebas/listado2";
-//    }
-//    @PostMapping("/query2")
-//    public String query2(
-//            @RequestParam("precioInf") double precioInf,
-//            @RequestParam("precioSup") double precioSup,
-//            Model model) {
-//        var productos=productoService.consultaJPQL(precioInf,precioSup);
-//        model.addAttribute("productos", productos);
-//        model.addAttribute("precioInf", precioInf);
-//        model.addAttribute("precioSup", precioSup);
-//        
-//        return "/pruebas/listado2";
-//    }
-//    @PostMapping("/query3")
-//    public String query3(
-//            @RequestParam("precioInf") double precioInf,
-//            @RequestParam("precioSup") double precioSup,
-//            Model model) {
-//        var productos=productoService.consultaSQL(precioInf,precioSup);
-//        model.addAttribute("productos", productos);
-//        model.addAttribute("precioInf", precioInf);
-//        model.addAttribute("precioSup", precioSup);
-//        
-//        return "/pruebas/listado2";
-//    }
     @PostMapping("/query4")
     public String query4(
             @RequestParam("descripcion") String descripcion,
