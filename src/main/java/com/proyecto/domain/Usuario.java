@@ -16,17 +16,20 @@ import jakarta.persistence.Id;
  */
 @Entity
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; 
-    
-    @Column(unique = true)
-    private String username; 
-    
-    private String password; 
-    
-    @Column(name = "role")
+    private Long id;
+
+    @Column(unique = true, nullable = false)
+    private String username;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
     private String roles;
+
 
     public Long getId() {
         return id;
@@ -59,5 +62,4 @@ public class Usuario {
     public void setRoles(String roles) {
         this.roles = roles;
     }
-    
 }
