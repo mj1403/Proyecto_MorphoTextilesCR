@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head th:replace="~{layout/plantilla :: head}">
         <title>Morpho Textiles CR</title>
         <meta charset="UTF-8"/>        
@@ -14,7 +14,8 @@
                             type="button" 
                             class="btn btn-primary btn-block" 
                             data-bs-toggle="modal" 
-                            data-bs-target="#agregarProducto">
+                            data-bs-target="#agregarProducto"
+                            sec:authorize="hasRole('ADMIN')">
                             <i class="fas fa-plus"></i> [[#{producto.agregar}]]
                         </button>
                     </div>
@@ -88,10 +89,10 @@
                                     <p class="card-text">[[${c.descripcion}]]</p>
                                     <p class="card-text"><strong>Precio:</strong> $[[${c.precio}]]</p>
                                     <p class="card-text"><strong>Stock:</strong> [[${c.stock}]]</p>
-                                    <a th:href="@{/producto/eliminar/}+${c.idProducto}" class="btn btn-danger">
+                                    <a th:href="@{/producto/eliminar/}+${c.idProducto}" class="btn btn-danger" sec:authorize="hasRole('ADMIN')">
                                         <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                                     </a>
-                                    <a th:href="@{/producto/modificar/}+${c.idProducto}" class="btn btn-success">
+                                    <a th:href="@{/producto/modificar/}+${c.idProducto}" class="btn btn-success" sec:authorize="hasRole('ADMIN')">
                                         <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]
                                     </a>
                                 </div>

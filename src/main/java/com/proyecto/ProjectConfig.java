@@ -1,5 +1,3 @@
-
-
 package com.proyecto;
 
 import java.util.Locale;
@@ -56,8 +54,6 @@ public class ProjectConfig implements WebMvcConfigurer {
         resolver.setCheckExistence(true);
         return resolver;
     }
-
-    /* Los siguiente métodos son para implementar el tema de seguridad dentro del proyecto */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
@@ -69,68 +65,36 @@ public class ProjectConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/login").permitAll()
-//                .requestMatchers("/", "/login", "/producto/listado", "/producto/ofertas").permitAll()
-                .requestMatchers("/producto/listado", "/producto/ofertas").permitAll()
-                .requestMatchers("/pruebas/listado2").permitAll()
-                .requestMatchers("/DTFUV/informacion").permitAll()
-                .anyRequest().authenticated()
-                )
-                .formLogin(login -> login
-                .loginPage("/login")
+                .authorizeHttpRequests((request) -> request
+                .requestMatchers("/", "/index", "/errores/**",
+                        "/carrito/**", "/reportes/**",
+                        "/registro/**", "/js/**", "/webjars/**",
+                        "/DTFUV/informacion",
+                        "/producto/listado",
+                        "pruebas/listado2")
                 .permitAll()
+                .requestMatchers(
+                        "/producto/eliminar", "/producto/actualizar",
+                        "/producto/modificar/**", "/producto/eliminar/**",
+                        "/categoria/nuevo", "/categoria/guardar",
+                        "/categoria/modificar/**", "/categoria/eliminar/**",
+                        "/usuario/nuevo", "/usuario/guardar",
+                        "/usuario/modificar/**", "/usuario/eliminar/**",
+                        "/reportes/**"
+                ).hasRole("ADMIN")
+                .requestMatchers(
+                        "/producto/listado",
+                        "/categoria/listado",
+                        "/usuario/listado",
+                        "/pruebas/**"
+                ).hasRole("VENDEDOR")
+                .requestMatchers("/facturar/carrito")
+                .hasRole("USER")
                 )
-                .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .permitAll()
-                );
-
+                .formLogin((form) -> form
+                .loginPage("/login").permitAll())
+                .logout((logout) -> logout.permitAll());
         return http.build();
     }
 
-//                .requestMatchers(
-//                        "/producto/listado", "/producto/guardar",
-//                        "/producto/modificar/**", "/producto/eliminar/**",
-//                        "/categoria/nuevo", "/categoria/guardar",
-//                        "/categoria/modificar/**", "/categoria/eliminar/**",
-//                        "/usuario/nuevo", "/usuario/guardar",
-//                        "/usuario/modificar/**", "/usuario/eliminar/**",
-//                        "/reportes/**"
-//                ).hasRole("ADMIN")
-//                .requestMatchers(
-//                        "/producto/listado",
-//                        "/categoria/listado",
-//                        "/usuario/listado",
-//                        "/pruebas/**"
-//                ).hasRole("VENDEDOR")
-//                .requestMatchers("/facturar/carrito")
-//                .hasRole("USER")
-//                )
-//                .formLogin((form) -> form
-//                .loginPage("/login").permitAll())
-//                .logout((logout) -> logout.permitAll());
-
-    /* El siguiente método se utiliza para completar la clase no es 
-    realmente funcional, la próxima semana se reemplaza con usuarios de BD */
-    @Bean
-    public UserDetailsService users() {
-        UserDetails admin = User.builder()
-                .username("juan")
-                .password("{noop}123")
-                .roles("USER", "VENDEDOR", "ADMIN")
-                .build();
-        UserDetails sales = User.builder()
-                .username("rebeca")
-                .password("{noop}456")
-                .roles("USER", "VENDEDOR")
-                .build();
-        UserDetails user = User.builder()
-                .username("pedro")
-                .password("{noop}789")
-                .roles("USER")
-                .build();
-        return new InMemoryUserDetailsManager(user, sales, admin);
-    }
 }
