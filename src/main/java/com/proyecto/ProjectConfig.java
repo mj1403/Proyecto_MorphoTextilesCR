@@ -69,8 +69,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .requestMatchers("/", "/index", "/errores/**",
                         "/carrito/**", "/reportes/**",
                         "/registro/**", "/js/**", "/webjars/**",
-                        "/DTFUV/informacion",
-                        "/producto/listado",
+                        "/DTFUV/informacion", "/css/**",
+                        "/images/**", "/producto/listado",
                         "pruebas/listado2")
                 .permitAll()
                 .requestMatchers(
@@ -92,7 +92,9 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .hasRole("USER")
                 )
                 .formLogin((form) -> form
-                .loginPage("/login").permitAll())
+                .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/", true)
+                )
                 .logout((logout) -> logout.permitAll());
         return http.build();
     }
