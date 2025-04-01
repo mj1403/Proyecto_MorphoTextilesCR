@@ -26,18 +26,18 @@ public class ComentarioController {
     }
 
     @PostMapping("/guardar")
-    public String guardarComentario(@ModelAttribute Comentario comentario) {
+    public String guardarComentario(@ModelAttribute Comentario comentario, Model model) {
         comentarioRepository.save(comentario);
-        return "redirect:/comentarios/producto/" + comentario.getProducto().getIdProducto();
+        return obtenerComentariosPorProducto(comentario.getProducto().getIdProducto(), model);
     }
 
     @PostMapping("/eliminar/{idComentario}")
-    public String eliminarComentario(@PathVariable Long idComentario) {
+    public String eliminarComentario(@PathVariable Long idComentario, Model model) {
         Optional<Comentario> comentarioOpt = comentarioRepository.findById(idComentario);
         if (comentarioOpt.isPresent()) {
             Long idProducto = comentarioOpt.get().getProducto().getIdProducto();
             comentarioRepository.deleteById(idComentario);
-            return "redirect:/comentarios/producto/" + idProducto;
+            return obtenerComentariosPorProducto(idProducto, model);
         }
         return "redirect:/";
     }
