@@ -71,7 +71,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/registro/**", "/js/**", "/webjars/**",
                         "/DTFUV/informacion", "/css/**",
                         "/images/**", "/producto/listado",
-                        "pruebas/listado2")
+                        "pruebas/listado2","/preguntasfrecuentes")
                 .permitAll()
                 .requestMatchers(
                         "/producto/eliminar", "/producto/actualizar",
@@ -98,5 +98,5 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .logout((logout) -> logout.permitAll());
         return http.build();
     }
-
+  
 }
