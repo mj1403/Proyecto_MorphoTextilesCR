@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Morpho Textiles CR</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+    <!-- Botón Agregar -->
+    <section th:fragment="btnAgregar" class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <button 
+                        type="button" 
+                        class="btn btn-primary btn-block" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#agregarLaser"
+                        sec:authorize="hasRole('ADMIN')">
+                        <i class="fas fa-plus"></i> [[#{laser.agregar}]]
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Agregar Laser -->
+    <section th:fragment="agregarLaser">
+        <div id="agregarLaser" class="modal fade" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header bg-info text-white">
+                        <h5 class="modal-title">[[#{laser.agregar}]]</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form th:action="@{/laser/guardar}" th:object="${laser}" method="POST" class="was-validated" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label>[[#{laser.nombre}]]</label>
+                                <input type="text" class="form-control" name="nombre" required="true"/>
+                            </div>
+                            <div class="mb-3">
+                                <label>[[#{laser.descripcion}]]</label>
+                                <input type="text" class="form-control" name="descripcion"/>
+                            </div>
+                            <div class="mb-3">
+                                <label>[[#{laser.precio}]]</label>
+                                <input type="number" class="form-control" name="precio" required="true"/>
+                            </div>
+                            <div class="mb-3">
+                                <label>[[#{laser.stock}]]</label>
+                                <input type="number" class="form-control" name="stock" required="true"/>
+                            </div>
+                            <div class="mb-3">
+                                <label>[[#{laser.categoria}]]</label>
+                                <input type="text" class="form-control" name="categoria" required="true"/>
+                            </div>
+                            <div class="mb-3">
+                                <label>[[#{laser.imagen}]]</label>
+                                <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                <img id="blah" src="#" alt="your image" height="200"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listado de Lasers -->
+    <section th:fragment="listado" id="lasers">
+        <div class="container py-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>[[#{laser.listado}]]</h4>
+                </div>
+                <div class="row row-cols-1 row-cols-md-3 g-4" th:if="${lasers != null and !lasers.empty}">
+                    <div class="col" th:each="c : ${lasers}">
+                        <div class="card h-100 text-center" style="width: 18rem;">
+                            <img th:src="@{${c.imagen}}" class="card-img-top" alt="Laser"></img>
+                            <div class="card-body">
+                                <h5 class="card-title">[[${c.nombre}]]</h5>
+                                <p class="card-text">[[${c.descripcion}]]</p>
+                                <p class="card-text"><strong>Precio:</strong> $[[${c.precio}]]</p>
+                                <p class="card-text"><strong>Stock:</strong> [[${c.stock}]]</p>
+                                <a th:href="@{/laser/eliminar/}+${c.idLaser}" class="btn btn-danger" sec:authorize="hasRole('ADMIN')">
+                                    <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                                </a>
+                                <a th:href="@{/laser/modificar/}+${c.idLaser}" class="btn btn-success" sec:authorize="hasRole('ADMIN')">
+                                    <i class="fas fa-pencil"></i> [[#{accion.actualizar}]]
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center p-2" th:if="${lasers == null or lasers.empty}">
+                    <span>[[#{lista.vacia}]]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Edición -->
+    <section th:fragment="editarLaser">
+        <div class="container py-4">
+            <form method="POST" th:action="@{/laser/guardar}" th:object="${laser}" class="was-validated" enctype="multipart/form-data">
+                <input type="hidden" name="idLaser" th:field="*{idLaser}"/>
+                <input type="hidden" name="imagen" th:field="*{imagen}"/>
+                <div class="row py-4 mb-4 bg-light">
+                    <div class="col-md-4 d-grid">
+                        <a th:href="@{/laser/listado}" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> [[#{accion.regresar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">
+                        <a th:href="@{/laser/eliminar/}+${laser.idLaser}" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-check"></i> [[#{accion.guardar}]]
+                        </button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>[[#{accion.actualizar}]]</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="nombre">[[#{laser.nombre}]]</label>
+                            <input type="text" class="form-control" name="nombre" th:field="*{nombre}" required="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion">[[#{laser.descripcion}]]</label>
+                            <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}" required="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="precio">[[#{laser.precio}]]</label>
+                            <input type="number" class="form-control" name="precio" th:field="*{precio}" required="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="stock">[[#{laser.stock}]]</label>
+                            <input type="number" class="form-control" name="stock" th:field="*{stock}" required="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="imagen">[[#{laser.imagen}]]</label>
+                            <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);" />
+                            <img id="blah" th:src="@{${laser.imagen}}" alt="your image" height="200"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoria">[[#{laser.categoria}]]</label>
+                            <input type="text" class="form-control" name="categoria" th:field="*{categoria}" required="true"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>

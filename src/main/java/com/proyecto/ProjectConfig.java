@@ -71,7 +71,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/registro/**", "/js/**", "/webjars/**",
                         "/DTFUV/informacion", "/css/**",
                         "/images/**", "/producto/listado",
-                        "pruebas/listado2","/preguntasfrecuentes")
+                        "pruebas/listado2","/preguntasfrecuentes",
+                        "/laser/listado","laser/**")
                 .permitAll()
                 .requestMatchers(
                         "/producto/eliminar", "/producto/actualizar",
