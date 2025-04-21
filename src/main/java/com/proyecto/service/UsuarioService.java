@@ -42,13 +42,13 @@ public class UsuarioService {
     }
 
     @Transactional(readOnly = true)
-    public Usuario getUsuarioPorUsernameOCorreo(String username, String correo) {
-        return usuarioRepository.findByUsernameOrCorreo(username, correo);
+    public Usuario getUsuarioPorUsernameOEmail(String username, String email) {
+        return usuarioRepository.findByUsernameOrEmail(username, email);
     }
 
     @Transactional(readOnly = true)
-    public boolean existeUsuarioPorUsernameOCorreo(String username, String correo) {
-        return usuarioRepository.existsByUsernameOrCorreo(username, correo);
+    public boolean existeUsuarioPorUsernameOEmail(String username, String email) {
+        return usuarioRepository.existsByUsernameOrEmail(username, email);
     }
 
     @Transactional

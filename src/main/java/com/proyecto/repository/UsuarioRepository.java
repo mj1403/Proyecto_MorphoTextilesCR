@@ -10,8 +10,8 @@ public interface UsuarioRepository
 
     Usuario findByUsernameAndPassword(String username, String Password);
 
-    Usuario findByUsernameOrCorreo(String username, String correo);
+    Usuario findByUsernameOrEmail(String username, String email);
 
-    boolean existsByUsernameOrCorreo(String username, String correo);
+    boolean existsByUsernameOrEmail(String username, String email);
 
 }
