@@ -10,22 +10,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 html, body {
     height: 100%;
     margin: 0;
-    display: flex;
-    flex-direction: column; 
+    padding: 0;
 }
 
 .container {
     flex: 1;
 }
 
+main {
+    flex: 1;
+}
+
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     background-color: #17a2b8;
     color: black;
     text-align: center;
     padding: 10px;
+
+
+}
+
+.layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh; 
 }
 
 
@@ -71,20 +79,30 @@ footer {
     filter: invert(1);
 }
 
-.carousel-control-prev, 
+.carousel-control-prev,
 .carousel-control-next {
     opacity: 0.8;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     font-family: 'Poppins', sans-serif;
 }
 
 
 h1, h2, h3 {
-    font-weight: 600; 
+    font-weight: 600;
 }
 
 p {
-    font-weight: 300; 
+    font-weight: 300;
 }
+
+section{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows:
+        auto 1fr auto;
+}
+

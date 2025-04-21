@@ -54,6 +54,7 @@ public class ProjectConfig implements WebMvcConfigurer {
         resolver.setCheckExistence(true);
         return resolver;
     }
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
@@ -62,47 +63,44 @@ public class ProjectConfig implements WebMvcConfigurer {
         registry.addViewController("/registro/nuevo").setViewName("/registro/nuevo");
     }
 
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .authorizeHttpRequests((request) -> request
-//                .requestMatchers("/", "/index", "/errores/**",
-//                        "/carrito/**", "/reportes/**",
-//                        "/registro/**", "/js/**", "/webjars/**",
-//                        "/DTFUV/informacion", "/css/**",
-//                        "/images/**", "/producto/listado",
-////<<<<<<< HEAD
-////                        "pruebas/listado2", "/comentarios/producto/**",
-////                        "pruebas/query4")
-////=======
-////                        "pruebas/listado2","/preguntasfrecuentes",
-////                        "/laser/listado","laser/**")
-////>>>>>>> 377ac30285e88c30d5779aaf1d76033aa35add0d
-////                .permitAll()
-//                .requestMatchers(
-//                        "/producto/eliminar", "/producto/actualizar",
-//                        "/producto/modificar/**", "/producto/eliminar/**",
-//                        "/categoria/nuevo", "/categoria/guardar",
-//                        "/categoria/modificar/**", "/categoria/eliminar/**",
-//                        "/usuario/nuevo", "/usuario/guardar",
-//                        "/usuario/modificar/**", "/usuario/eliminar/**",
-//                        "/reportes/**"
-//                ).hasRole("ADMIN")
-//                .requestMatchers(
-//                        "/producto/listado",
-//                        "/categoria/listado",
-//                        "/usuario/listado",
-//                        "/pruebas/**"
-//                ).hasRole("VENDEDOR")
-//                .requestMatchers("/facturar/carrito")
-//                .hasRole("USER")
-//                )
-//                .formLogin((form) -> form
-//                .loginPage("/login").permitAll()
-//                .defaultSuccessUrl("/", true)
-//                )
-//                .logout((logout) -> logout.permitAll());
-//        return http.build();
-//    }
-  
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(auth -> auth
+                .requestMatchers(
+                        "/", "/index", "/errores/**",
+                        "/carrito/**", "/reportes/**",
+                        "/registro/**", "/js/**", "/webjars/**",
+                        "/DTFUV/informacion", "/css/**",
+                        "/images/**", "/producto/listado",
+                        "/pruebas/listado2", "/comentarios/producto/**",
+                        "/pruebas/query4", "/preguntasfrecuentes",
+                        "/laser/listado", "/laser/**"
+                ).permitAll()
+                .requestMatchers(
+                        "/producto/eliminar", "/producto/actualizar",
+                        "/producto/modificar/**", "/producto/eliminar/**",
+                        "/categoria/nuevo", "/categoria/guardar",
+                        "/categoria/modificar/**", "/categoria/eliminar/**",
+                        "/usuario/nuevo", "/usuario/guardar",
+                        "/usuario/modificar/**", "/usuario/eliminar/**",
+                        "/reportes/**"
+                ).hasRole("ADMIN")
+                .requestMatchers(
+                        "/producto/listado",
+                        "/categoria/listado",
+                        "/usuario/listado",
+                        "/pruebas/**"
+                ).hasRole("VENDEDOR")
+                .requestMatchers("/facturar/carrito").hasRole("USER")        
+                )
+                .formLogin(form -> form
+                .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/", true)
+                )
+                .logout(logout -> logout.permitAll());
+
+        return http.build();
+    }
+
 }
