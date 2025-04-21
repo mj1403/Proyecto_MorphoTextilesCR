@@ -50,9 +50,9 @@
                                 </ul>
                             </li>
 
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                    <li><a class="dropdown-item" th:href="@{/DTFUV/informacion}">Información</a></li>
-                                </ul>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                <li><a class="dropdown-item" th:href="@{/DTFUV/informacion}">Información</a></li>
+                            </ul>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,6 +70,25 @@
                                     <li><a class="dropdown-item" th:href="@{/preguntasfrecuentes}">Información</a></li>
                                 </ul>
                             </li>
+
+
+
+
+
+                            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Administración
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                        <li><a class="dropdown-item" th:href="@{/usuario/listado}">Listado de Usuarios</a></li>
+                                    </ul>
+                                </li>
+                            </sec:authorize>
+
+
+
+
 
                         </ul>
                     </div>
