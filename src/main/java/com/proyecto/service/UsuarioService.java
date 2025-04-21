@@ -57,7 +57,7 @@ public class UsuarioService {
         if (crearRolUser) {  //Si se está creando el usuario, se crea el rol por defecto "USER"
             Rol rol = new Rol();
             rol.setNombre("USER");
-            rol.setIdUsuario(usuario.getIdUsuario());
+           // rol.setIdUsuario(usuario.getIdUsuario());
             rolRepository.save(rol);
         }
     }

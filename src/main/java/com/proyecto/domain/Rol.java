@@ -1,4 +1,3 @@
-
 package com.proyecto.domain;
 
 import jakarta.persistence.*;
@@ -8,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="rol")
+@Table(name = "rol")
 public class Rol implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -18,8 +17,9 @@ public class Rol implements Serializable {
     @Column(name = "id_rol")
     private Long idRol;
     private String nombre;
-    @Column(name = "id_usuario")
-    private Long idUsuario;    
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 
     public Long getIdRol() {
         return idRol;
@@ -37,12 +37,12 @@ public class Rol implements Serializable {
         this.nombre = nombre;
     }
 
-    public Long getIdUsuario() {
-        return idUsuario;
-    }
+//    public Long getIdUsuario() {
+//        return idUsuario;
+//    }
+//
+//    public void setIdUsuario(Long idUsuario) {
+//        this.idUsuario = idUsuario;
+//    }
 
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-    
 }

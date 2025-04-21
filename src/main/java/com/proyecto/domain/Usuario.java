@@ -1,4 +1,3 @@
-
 package com.proyecto.domain;
 
 import jakarta.persistence.*;
@@ -8,13 +7,14 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="usuarios")
-public class Usuario implements Serializable{
+@Table(name = "usuarios")
+public class Usuario implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_usuario")
+    @Column(name = "id_usuario")
     private Long idUsuario;
     private String nombre;
     private String apellido;
@@ -23,10 +23,8 @@ public class Usuario implements Serializable{
     private String password;
     private String telefono;
     private String rutaImagen;
-    private boolean activo; 
-    @OneToMany
-    @JoinColumn(name="id_usuario")
-    
+    private boolean activo;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Rol> roles;
 
     public Long getIdUsuario() {
@@ -108,6 +106,5 @@ public class Usuario implements Serializable{
     public void setRoles(List<Rol> roles) {
         this.roles = roles;
     }
-    
-    
+
 }
