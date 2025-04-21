@@ -23,6 +23,7 @@ public class UsuarioController {
     public String listado(Model model) {
         var usuarios = usuarioService.getUsuarios();
         model.addAttribute("usuarios", usuarios);
+        model.addAttribute("usuario", new Usuario());
         model.addAttribute("totalUsuarios", usuarios.size());
         return "/usuario/listado";
     }
@@ -39,14 +40,14 @@ public class UsuarioController {
     public String usuarioGuardar(Usuario usuario,
             @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
-            usuarioService.save(usuario,false);
+            usuarioService.save(usuario, false);
             usuario.setRutaImagen(
                     firebaseStorageService.cargaImagen(
                             imagenFile,
                             "usuario",
                             usuario.getIdUsuario()));
         }
-        usuarioService.save(usuario,true);
+        usuarioService.save(usuario, true);
         return "redirect:/usuario/listado";
     }
 

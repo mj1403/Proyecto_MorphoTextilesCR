@@ -47,8 +47,8 @@
                                     <input type="text" class="form-control" name="nombre" required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="apellidos">[[#{usuario.apellidos}]]</label>
-                                    <input type="text" class="form-control" name="apellidos" required="true"/>
+                                    <label for="apellido">[[#{usuario.apellido}]]</label>
+                                    <input type="text" class="form-control" name="apellido" required="true"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="username">[[#{usuario.username}]]</label>
@@ -59,8 +59,8 @@
                                     <input type="password" class="form-control" name="password" required="true"/>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="email">[[#{usuario.correo}]]</label>
-                                    <input type="email" class="form-control" name="correo" required="true"/>
+                                    <label for="email">[[#{usuario.email}]]</label>
+                                    <input type="email" class="form-control" name="email" required="true"/>
                                 </div>
                                 <div class="mb-3">
                                     <label for="telefono">[[#{usuario.telefono}]]</label>
@@ -96,7 +96,7 @@
                                         <tr><th>#</th>
                                             <th>[[#{usuario.username}]]</th>
                                             <th>[[#{usuario.nombre}]]</th>
-                                            <th>[[#{usuario.apellidos}]]</th>
+                                            <th>[[#{usuario.apellido}]]</th>
                                             <th>[[#{usuario.imagen}]]</th>
                                             <th></th>
                                         </tr>
@@ -106,7 +106,7 @@
                                             <td>[[${usuario.idUsuario}]]</td>
                                             <td>[[${usuario.username}]]</td>
                                             <td>[[${usuario.nombre}]]</td>
-                                            <td>[[${usuario.apellidos}]]</td>
+                                            <td>[[${usuario.apellido}]]</td>
                                             <td><img th:src="@{${usuario.rutaImagen}}" alt="..." height="75"/></td>
                                             <td sec:authorize="hasRole('ROLE_ADMIN')">
                                                 <a th:href="@{/usuario/eliminar/}+${usuario.idUsuario}"
@@ -184,15 +184,15 @@
                                                            required="true">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="apellidos">[[#{usuario.apellidos}]]</label>
+                                                    <label for="apellido">[[#{usuario.apellido}]]</label>
                                                     <input type="text" class="form-control" 
-                                                           name="apellidos" th:field="*{apellidos}"
+                                                           name="apellido" th:field="*{apellido}"
                                                            required="true">
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="email">[[#{usuario.correo}]]</label>
+                                                    <label for="email">[[#{usuario.email}]]</label>
                                                     <input type="email" class="form-control" 
-                                                           name="correo" th:field="*{correo}"
+                                                           name="email" th:field="*{email}"
                                                            required="true">
                                                 </div>
                                                 <div class="mb-3">
