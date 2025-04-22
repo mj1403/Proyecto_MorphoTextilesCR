@@ -90,6 +90,8 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .requestMatchers(
                         "/producto/listado",
                         "/categoria/listado",
+                        "/js/**", "/webjars/**",
+                        "/css/**", "/img/**",
                         "/usuario/listado",
                         "/pruebas/**"
                 ).hasRole("VENDEDOR")
