@@ -65,6 +65,7 @@ public class CarritoController {
 
     }
 
+    
     @GetMapping("/eliminar/{idProducto}")
     public String eliminar(Model model, Item item) {
         itemService.delete(item);
