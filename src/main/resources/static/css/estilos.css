@@ -7,15 +7,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : marjo
 */
 
+
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-/*.container {
-    flex: 1;
-}*/
 
 main {
     flex: 1;
@@ -33,66 +31,15 @@ footer {
 .layout {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    min-height: 100dvh; 
+    min-height: 100dvh;
 }
 
-
-/*.carousel {
-    max-width: 600px;
-    margin: auto;
-    border: 4px solid #ddd;
-    border-radius: 12px;
-    padding: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    border-bottom: 3px solid #aaa;
-    overflow: hidden;
-}
-
-.carousel img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.carousels-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-#carousel3 {
-    max-width: 550px;
-    height: 220px;
-}
-
-#carousel3 img {
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 6px;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    opacity: 0.8;
-}*/
 
 body {
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
 }
-
 
 h1, h2, h3 {
     font-weight: 600;
@@ -107,5 +54,22 @@ section{
     min-height: 100dvh;
     grid-template-rows:
         auto 1fr auto;
+}
+
+/* Estilo para el texto debajo de las imágenes */
+.product-name {
+    margin-top: 10px; /* Espacio entre la imagen y el texto */
+    background-color: #ff3131; /* Fondo claro */
+    color: #ffffff; /* Color del texto */
+    font-family: 'JetBrains Mono', monospace;/* Tipografía específica */
+    font-size: 20px; /* Tamaño del texto */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 12px; /* Bordes redondeados */
+    display: inline-block; /* Ajusta el tamaño al texto */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.custom-font {
+    font-family: 'JetBrains Mono', monospace;
 }
 
