@@ -20,7 +20,7 @@ main {
 }
 
 footer {
-    background-color: #17a2b8;
+    background-color: #0751b5;
     color: black;
     text-align: center;
     padding: 10px;
@@ -57,13 +57,13 @@ section {
 
 .product-name {
     margin-top: 10px;
-    background-color: #ff3131; 
+    background-color: #ff3131;
     color: #ffffff;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 20px; 
-    padding: 10px 15px; 
+    font-size: 20px;
+    padding: 10px 15px;
     border-radius: 12px;
-    display: inline-block; 
+    display: inline-block;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
@@ -73,7 +73,7 @@ section {
     background-color: #e60e0e;
     color: #fff;
     transform: scale(1.05);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .custom-font {
@@ -86,3 +86,31 @@ section {
     height: auto;
 }
 
+/* Personalizar la cabecera del formulario de inicio de sesión */
+#login-card .login-header {
+    background-color: #ff721e; /* Cambia el color de fondo */
+    color: #ffffff; /* Cambia el color del texto */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados en las esquinas superiores */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Opcional: Personalizar el formulario */
+#login-card .form-control {
+    border: 1px solid #ccc; /* Cambiar el color del borde */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Opcional: Personalizar los botones */
+#login-card .btn-primary {
+    background-color: #ff721e;
+    border-color: #000000;
+    color: #fff;
+}
+
+.login-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem; /* Opcional: ajusta el tamaño de la fuente */
+    font-weight: bold; /* Opcional: ajusta el grosor */
+    color: #333; /* Opcional: ajusta el color del texto */
+}
