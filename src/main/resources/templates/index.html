@@ -1,12 +1,12 @@
+
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
     <head th:replace="~{layout/plantilla :: head}">
-        <!-- Carga de estilos -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
-            <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </head>
 
     <body>
@@ -20,17 +20,18 @@
             <section class="mt-5">
                 <h2 class="text-center">Productos más vendidos</h2>
                 <div class="row g-4">
-                    <div class="col-md-4 text-center">
-                        <img th:src="@{/img/ABRIGO-MOCKUP.png}" class="img-fluid rounded shadow" alt="Abrigo Mockup">
-                            <div class="product-name custom-font">Abrigo Mockup</div>
+                    <div class="col-md-4">
+                        <img th:src="@{/img/ABRIGO-MOCKUP.png}" class="img-fluid rounded shadow" alt="Producto 1"/>
+                        <div class="product-name custom-font">Hoddie Personalizable</div>
                     </div>
-                    <div class="col-md-4 text-center">
-                        <img th:src="@{/img/TSHIRT.png}" class="img-fluid rounded shadow" alt="Camiseta personalizada">
-                            <div class="product-name custom-font">Camiseta Personalizada</div>
+                    <div class="col-md-4">
+                        <img th:src="@{/img/TSHIRT.png}" class="img-fluid rounded shadow" alt="Producto 2"/>
+                        <div class="product-name custom-font">Camiseta Personalizada</div>
                     </div>
-                    <div class="col-md-4 text-center">
-                        <img th:src="@{/img/OTRO-PRODUCTO.png}" class="img-fluid rounded shadow" alt="Producto extra">
-                            <div class="product-name custom-font">Producto Extra</div>
+                    <!-- Puedes agregar más columnas aquí -->
+                    <div class="col-md-4">
+                        <img th:src="@{/img/OTRO-PRODUCTO.png}" class="img-fluid rounded shadow" alt="Producto 3"/>
+
                     </div>
                 </div>
             </section>
@@ -39,30 +40,25 @@
             <section class="mt-5">
                 <h2 class="text-center">Productos Personalizables</h2>
                 <div class="row g-4">
-                    <div class="col-md-3 text-center">
-                        <img th:src="@{/img/blusas-producto.jpg}" class="img-fluid rounded shadow" alt="Blusa personalizable">
-                            <div class="product-name custom-font">Blusa Personalizable</div>
+                    <div class="col-md-3">
+                        <img th:src="@{/img/GORRA-PERSONALIZABLE.png}" class="img-fluid rounded shadow" alt="Personalizable 1"/>
+                        <div class="product-name custom-font">Gorra Personalizada</div>
                     </div>
-                    <div class="col-md-3 text-center">
-                        <img th:src="@{/img/botellas-producto.jpg}" class="img-fluid rounded shadow" alt="Botella personalizable">
-                            <div class="product-name custom-font">Botella Personalizable</div>
+                    <div class="col-md-3">
+                        <img th:src="@{/img/BOTELLA-PERSONALIZABLE.png}" class="img-fluid rounded shadow" alt="Personalizable 2"/>
+                        <div class="product-name custom-font">Botella Personalizada</div>                            
                     </div>
-                    <div class="col-md-3 text-center">
-                        <img th:src="@{/img/tazas-producto.jpg}" class="img-fluid rounded shadow" alt="Taza personalizable">
-                            <div class="product-name custom-font">Taza Personalizable</div>
+                    <div class="col-md-3">
+                        <img th:src="@{/img/GORRO-PERSONALIZABLE.png}" class="img-fluid rounded shadow" alt="Personalizable 3"/>
+                         <div class="product-name custom-font">Gorro Personalizado</div>
                     </div>
-                    <div class="col-md-3 text-center">
-                        <img th:src="@{/img/tshirt-producto.jpg}" class="img-fluid rounded shadow" alt="T-Shirt personalizable">
-                            <div class="product-name custom-font">T-Shirt Personalizable</div>
+                    <div class="col-md-3">
+                        <img th:src="@{/img/tshirt-producto.jpg}" class="img-fluid rounded shadow" alt="Personalizable 4">
                     </div>
                 </div>
             </section>
         </main>
 
         <footer th:replace="~{layout/plantilla :: footer}"></footer>
-
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
-
 </html>

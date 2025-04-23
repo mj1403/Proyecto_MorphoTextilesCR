@@ -49,12 +49,11 @@ p {
     font-weight: 300;
 }
 
-section{
-    display: grid;
-    min-height: 100dvh;
-    grid-template-rows:
-        auto 1fr auto;
+section {
+    display: block;
+    margin-top: 20px;
 }
+
 
 /* Estilo para el texto debajo de las imágenes */
 .product-name {
