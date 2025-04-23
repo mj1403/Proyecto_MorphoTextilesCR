@@ -86,22 +86,21 @@ section {
     height: auto;
 }
 
-/* Personalizar la cabecera del formulario de inicio de sesión */
+
 #login-card .login-header {
-    background-color: #ff721e; /* Cambia el color de fondo */
-    color: #ffffff; /* Cambia el color del texto */
-    border-radius: 8px 8px 0 0; /* Bordes redondeados en las esquinas superiores */
-    font-weight: bold; /* Texto en negrita */
-    text-align: center; /* Centrar el texto */
+    background-color: #ff721e;
+    color: #ffffff;
+    border-radius: 8px 8px 0 0; 
+    font-weight: bold; 
+    text-align: center;
 }
 
-/* Opcional: Personalizar el formulario */
+
 #login-card .form-control {
-    border: 1px solid #ccc; /* Cambiar el color del borde */
-    border-radius: 4px; /* Bordes redondeados */
+    border: 1px solid #ccc; 
+    border-radius: 4px;
 }
 
-/* Opcional: Personalizar los botones */
 #login-card .btn-primary {
     background-color: #ff721e;
     border-color: #000000;
@@ -110,7 +109,7 @@ section {
 
 .login-title {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1.5rem; /* Opcional: ajusta el tamaño de la fuente */
-    font-weight: bold; /* Opcional: ajusta el grosor */
-    color: #333; /* Opcional: ajusta el color del texto */
+    font-size: 1.5rem; 
+    font-weight: bold;
+    color: #333; 
 }
