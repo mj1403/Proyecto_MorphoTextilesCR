@@ -49,27 +49,40 @@ p {
     font-weight: 300;
 }
 
-section{
-    display: grid;
-    min-height: 100dvh;
-    grid-template-rows:
-        auto 1fr auto;
+section {
+    display: block;
+    margin-top: 20px;
 }
 
-/* Estilo para el texto debajo de las imágenes */
+
 .product-name {
-    margin-top: 10px; /* Espacio entre la imagen y el texto */
-    background-color: #ff3131; /* Fondo claro */
-    color: #ffffff; /* Color del texto */
-    font-family: 'JetBrains Mono', monospace;/* Tipografía específica */
-    font-size: 20px; /* Tamaño del texto */
-    padding: 10px 15px; /* Espaciado interno */
-    border-radius: 12px; /* Bordes redondeados */
-    display: inline-block; /* Ajusta el tamaño al texto */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 10px;
+    background-color: #ff3131; 
+    color: #ffffff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px; 
+    padding: 10px 15px; 
+    border-radius: 12px;
+    display: inline-block; 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+
+.product-name:hover {
+    background-color: #e60e0e;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
 }
 
 .custom-font {
     font-family: 'JetBrains Mono', monospace;
+}
+
+.img-fluid {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
 }
 
